@@ -20,7 +20,7 @@ class SignUp extends Component {
         if(data.password===data.confirmPassword)
         {
             this.props.signUp(data);
-            console.log(data);
+            console.log("signup",this.props);
         }else{
             alert("Password and Confirm Password doesn't match");
         }
@@ -51,11 +51,12 @@ class SignUp extends Component {
 
 
 const mapStateToProps=(state)=>({
-
+    name:state.username,
+    pass:state.password
 })
 
 const mapDispatchToProps=(dispatch)=>({
     signUp:(userCredential)=>dispatch({type: "SIGNUP", payload:userCredential})
 })
 
-export default connect(null,mapDispatchToProps)(SignUp);
+export default connect(mapStateToProps,mapDispatchToProps)(SignUp);

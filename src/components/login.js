@@ -13,8 +13,9 @@ class Login extends Component {
             username:this.username,
             password:this.password
         }
+        console.log("login1",this.props);
 
-        console.log(data);
+        // console.log(data);
 
         if(this.props.username===data.username && this.props.password===data.password)
         {
@@ -48,7 +49,7 @@ const mapStateToProps=(state)=>({
     password: state.password
 })
 
-const mapDispatchToProps=(dispatch)=>{
-}
+// const mapDispatchToProps=(dispatch)=>{
+// }
 
 export default connect(mapStateToProps)(Login);
