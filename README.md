@@ -1,3 +1,11 @@
+This Code is covering the login, SignUp part correctly but the data is not getting Fetched from the API
+The issues that I faced during this assignment are:
+1. How To transer data to/from Store -: I read about mapDispatchToProps and mapStateToProps.
+2. How to fetch data from APIs -: Then I learned about axios, Saga, Thunk, but failed to implement in real.
+3. Found difficulty in finding the good resources to study. In the end, studied from redux official documentation.
+
+Overall experience was Good/Challenging, Got to learn alot from this assignment.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
