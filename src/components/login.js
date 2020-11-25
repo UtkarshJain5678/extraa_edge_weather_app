@@ -45,8 +45,8 @@ class Login extends Component {
 }
 
 const mapStateToProps=(state)=>({
-    username: state.username,
-    password: state.password
+    username: state.reducer.username,
+    password: state.reducer.password
 })
 
 // const mapDispatchToProps=(dispatch)=>{

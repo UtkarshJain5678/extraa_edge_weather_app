@@ -20,15 +20,11 @@ const reducer = (state=[], action) => {
         case actions.Get_Data:
             return {
                 // Fetch karke laao
-                ...state,
-                // weatherReport: action.payload,
                 loading:true
             }
         case actions.Data_Fetched:
             return {
-                //Data Fetched successfully
-                ...state,
-                weatherReport: action.payload,
+                //Data Fetched
                 loading:false
             }
         default:

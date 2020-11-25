@@ -20,7 +20,7 @@ class SignUp extends Component {
         if(data.password===data.confirmPassword)
         {
             this.props.signUp(data);
-            console.log("signup",this.props);
+            console.log("signup",this.props,data);
         }else{
             alert("Password and Confirm Password doesn't match");
         }

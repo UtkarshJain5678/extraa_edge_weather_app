@@ -1,42 +1,36 @@
-import {useState} from 'react';
+import React from "react";
 import * as actions from '../constants/constant';
+import { bindActionCreators } from "redux";
+import { connect } from 'react-redux';
 import '../App.css';
-import getData from '../actions/action';
-import {connect} from 'react-redux';
+import { requestApiData } from "../actions/action";
 
-function Home(props) {
-  const [city, setcity] = useState("");
-  
-  const getWeatherInfo=(city)=>
-  {
-    console.log(getData(city));
+
+class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { city: "" };
   }
 
-  const seachWeatherStatus=(e)=>{
-    e.preventDefault();
-    if(city==="")
-      alert("Please Enter a value");
-    else{
-      this.props.searchStatus(getWeatherInfo(city));
-    }
+  componentDidMount() {
+    this.props.requestApiData();
   }
 
-  return (
-    <div className="Home">
-      <form onSubmit={seachWeatherStatus}>
-        <input type="text" name="city" placeholder="City" onChange={e => setcity(e.target.value)} />
-        <input type="submit" value="Search" />
-      </form>
-    </div>
-  );
+  render() {
+    return (
+      <div className="Home">
+        <form>
+          <input type="text" name="city" placeholder="City" onChange={e => this.setState({city: e.target.value})} />
+          <input type="submit" value="Search" />
+        </form>
+      </div>
+    );
+  }
 }
 
-const mapDistpatchToProps=(dispatch)=>{
-  searchStatus:(fetchedData)=>dispatch({type: actions.Get_Data, payload:fetchedData})
-}
+const mapStateToProps = state => ({ data: state.data });
 
-const mapStateToProps=(state)=>{
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ requestApiData }, dispatch);
 
-}
-
-export default connect(null, mapDistpatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
